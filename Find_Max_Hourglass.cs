@@ -9,36 +9,20 @@
         
         public int Find_Max_Matris_Part_HourGlasses(int[][] arr)
         {
-            //int[][] arr = new int[6][];
-
-            //int[] result = new int[16];
+            List<int> sums = new List<int>();
 
             int sum = 0;
-
-            int max = 0;
-           
-            /*
-            for (int i = 0; i < 6; i++)
-            {
-                //arr[i] = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
-
-                //Console.WriteLine(" result is: {0} ", arr[i][i]);
-            }*/
 
             for (int i = 1; i < 5; i++)
             {
                 for (int j = 1; j < 5; j++)
                 {
-                    //Console.WriteLine(" " + arr[i][j] + " "); 
                     sum = arr[i - 1][j - 1] + arr[i - 1][j] + arr[i - 1][j + 1] + arr[i][j] + arr[i + 1][j - 1] + arr[i + 1][j] + arr[i + 1][j + 1];
-                    if (sum > max)
-                    {
-                        max = sum;
-                    }
+                    sums.Add(sum);
                 }
             }
 
-            return max;
+            return sums.Max();
         }
         
         
